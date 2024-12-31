@@ -63,6 +63,12 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+vcs.xml
+workspace.xml
+Tic_Tac_Toe.iml
+profiles_settings.xml
+modules.xml
+misc.xml
 *.cover
 .hypothesis/
 
