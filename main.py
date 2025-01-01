@@ -34,60 +34,67 @@ def check_winner(user_inputs, win_list):
             return True
     return False #  TIE scenario
 
-while winner is None:
-    valid_X = False
-    while not valid_X:
-        try:
-            board()
-            X = int(input('X enter a number: '))
-            # check if player played in same position
-            if user_inp_1.count(X) > 0 or user_inp_2.count(X) > 0:
-                print('number position already, try agian')
-                valid_X = False
-            # validate input before adding to the list
-            elif validate_input(X, number_list):
-                valid_X = True
-                user_inp_1.append(X)
-                print(f'valid input Y: {X}, player list: {user_inp_1} ')
-        except ValueError:
-            print('please enter a valid number.')
+game_on = True
 
-    # To check winner
-    result_1 = check_winner(user_inp_1, winning_list)
-    if result_1:
-        winner = "Player 1"
-        break
+while game_on:
+    while winner is None:
+        valid_X = False
+        while not valid_X:
+            try:
+                board()
+                X = int(input('X enter a number: '))
+                # check if player played in same position
+                if user_inp_1.count(X) > 0 or user_inp_2.count(X) > 0:
+                    print('number position already, pick another position')
+                    valid_X = False
+                # validate input before adding to the list
+                elif validate_input(X, number_list):
+                    valid_X = True
+                    user_inp_1.append(X)
+                    print(f'X played position: {user_inp_1} ')
+            except ValueError:
+                print('please enter a valid number.')
 
-    # Switch Player, Player 2's turn
-    valid_Y = False
-    while not valid_Y:
-        try:
-            board()
-            Y = int(input('Y enter a number: '))
-            # check if player played in same position
-            if user_inp_1.count(Y) > 0 or user_inp_2.count(Y) > 0:
-                print('number position already, try agian')
-                valid_Y = False
-            # validate input before adding to the list
-            elif validate_input(Y, number_list):
-                valid_Y = True
-                user_inp_2.append(Y)
-                print(f'valid input Y: {Y}, player list: {user_inp_2} ')
-        except ValueError:
-            print('please enter a valid number')
+        # To check winner
+        result_1 = check_winner(user_inp_1, winning_list)
+        if result_1:
+            winner = "Player 1"
+            break
 
-    if check_winner(user_inp_2, winning_list):
-        winner = 'Player 2'
-        break
+        # Switch Player, Player 2's turn
+        valid_Y = False
+        while not valid_Y:
+            try:
+                board()
+                Y = int(input('Y enter a number: '))
+                # check if player played in same position
+                if user_inp_1.count(Y) > 0 or user_inp_2.count(Y) > 0:
+                    print('number position already, pick another position')
+                    valid_Y = False
+                # validate input before adding to the list
+                elif validate_input(Y, number_list):
+                    valid_Y = True
+                    user_inp_2.append(Y)
+                    print(f'Y played positions: {user_inp_2} ')
+            except ValueError:
+                print('please enter a valid number')
 
-    # check maximum times player 1 can play
-    if len(user_inp_1) >= 5:
-        print('maximum moves reached')
+        if check_winner(user_inp_2, winning_list):
+            winner = 'Player 2'
+            break
 
-if winner:
-    print(f'The winner is {winner}')
-    play_again = input('Want to play again? (yes/no): ').lower()
-else:
-    print('TIE!')
-    play_again = input('Want to play again? (yes/no): ').lower()
+        # check maximum times player 1 can play
+        if len(user_inp_1) >= 5:
+            print('maximum moves reached')
+
+    if winner:
+        print(f'The winner is {winner}')
+        play_again = input('Want to play again? (yes/no): ').lower()
+        if play_again == 'no':
+            game_on = False
+    else:
+        print('TIE!')
+        play_again = input('Want to play again? (yes/no): ').lower()
+        if play_again == 'no':
+            game_on = False
 
