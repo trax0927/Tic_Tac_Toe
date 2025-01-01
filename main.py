@@ -40,8 +40,12 @@ while winner is None:
         try:
             board()
             X = int(input('X enter a number: '))
+            # check if player played in same position
+            if user_inp_1.count(X) > 0 or user_inp_2.count(X) > 0:
+                print('number position already, try agian')
+                valid_X = False
             # validate input before adding to the list
-            if validate_input(X, number_list):
+            elif validate_input(X, number_list):
                 valid_X = True
                 user_inp_1.append(X)
                 print(f'valid input Y: {X}, player list: {user_inp_1} ')
@@ -60,8 +64,12 @@ while winner is None:
         try:
             board()
             Y = int(input('Y enter a number: '))
+            # check if player played in same position
+            if user_inp_1.count(Y) > 0 or user_inp_2.count(Y) > 0:
+                print('number position already, try agian')
+                valid_Y = False
             # validate input before adding to the list
-            if validate_input(Y, number_list):
+            elif validate_input(Y, number_list):
                 valid_Y = True
                 user_inp_2.append(Y)
                 print(f'valid input Y: {Y}, player list: {user_inp_2} ')
