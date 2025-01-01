@@ -3,9 +3,6 @@ number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9,]
 winning_list = [[1, 2, 3], [1, 4, 7], [1, 5, 9],
                 [2, 5, 8], [3, 5, 7], [3, 6, 9],
                 [4, 5, 6], [7, 8, 9]]
-user_inp_1 = []
-user_inp_2 = []
-winner = None
 
 # TODO: Printing the game board
 def board():
@@ -37,6 +34,10 @@ def check_winner(user_inputs, win_list):
 game_on = True
 
 while game_on:
+    user_inp_1 = []
+    user_inp_2 = []
+    winner = None
+
     while winner is None:
         valid_X = False
         while not valid_X:
@@ -89,12 +90,14 @@ while game_on:
 
     if winner:
         print(f'The winner is {winner}')
-        play_again = input('Want to play again? (yes/no): ').lower()
-        if play_again == 'no':
-            game_on = False
     else:
         print('TIE!')
-        play_again = input('Want to play again? (yes/no): ').lower()
-        if play_again == 'no':
-            game_on = False
 
+    play_again = input('Want to play again? (yes/no): ').lower()
+    if play_again == 'no':
+        game_on = False
+    elif play_again == 'yes':
+        print('Starting a new game...')
+    else:
+        print('Invalid input, ending the game.')
+        game_on = False
