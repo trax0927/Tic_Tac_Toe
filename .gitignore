@@ -59,3 +59,5 @@ dist/
 *.ori
 *.orig
 *.tmp
+/static/assets/data/
+/export_to_csv.py
