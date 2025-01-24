@@ -1,33 +1,26 @@
-# Python
+# Virtual Environment
+venv/
+env/
+.venv/
+.env/
+
+# Environment Variables
+.env
+*.env
+!.env.example
+.csv
+
+# Python Specific
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# Virtual Environment
-venv/
-ENV/
-env/
-.env
-.venv
-env.bak/
-venv.bak/
+# Flask Specific
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
 
 # IDEs and Editors
 .idea/
@@ -35,51 +28,36 @@ venv.bak/
 *.swp
 *.swo
 *~
-.settings/
-.project
-.classpath
+
+# Operating System Files
 .DS_Store
-
-# Django
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-media/
-
-# Flask
-instance/
-.webassets-cache
-
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-vcs.xml
-workspace.xml
-Tic_Tac_Toe.iml
-profiles_settings.xml
-modules.xml
-misc.xml
-*.cover
-.hypothesis/
-
-# Logs and databases
-*.sql
-*.sqlite
-
-# OS generated files
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Backup files
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+/static/assets/data/
+/export_to_csv.py
